@@ -32,7 +32,7 @@ listItems(basket);
 function empty(basket){
   while (basket.length) {
     basket.pop();
-  }
+}
   return basket;
 }
 console.log(empty(basket));
@@ -44,29 +44,40 @@ console.log(empty(basket));
 // return `true` otherwise (equal or more than maxItems)
 const maxItems = 5;
 
-function isFull(basket){
-  if(basket < maxItems){
-    return false;
+function isFull(){
+  if(basket.length >= maxItems){
+    return true;
   }
-  return true;
+  return false;
 }
-console.log(isFull(basket));
+console.log(isFull());
 //Update the required `addItem` function to:
 //Use the `isFull` function to prevent more than `maxItems` from being added to the basket.
 //If an item was added to the array, return `true`
 //If there was no room and the item could not be added return `false`
+addItem('banana');
+addItem('pears');
+addItem('pinneapple');
+addItem('papaya');
+function updatedAddItem(){
+    if (isFull()) {
+      console.log('There is no more room to add an item');
+      return true;
+    }
+    console.log('There is plenty of room to add an item');
+    return false;
+}
+console.log(updatedAddItem());
 
+//Create a function called `removeItem`. It should:
+//Take an input parameter for a string `item`
+//Use [Array.indexOf] to find the index of the first matching item in the basket.
+//Use [Array.splice] to remove the first matching item from the basket.
+//Return the item removed or `null` if the item was not found
+console.log(basket);
+function removeItem(item){
+  basket.splice(basket.indexOf(item), 2);
+  return basket;
+}
 
-// Remember that Stretch Goals are not required, but will help you to further develop concepts from the skills we have covered.
-//
-// __Using functions in other functions!__
-//
-
-// 3.
-// __Using Array built-in functions!__
-//
-// 4. Create a function called `removeItem`. It should:
-//   - Take an input parameter for a string `item`
-//   - Use [Array.indexOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf) to find the index of the first matching item in the basket.
-//   - Use [Array.splice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) to remove the first matching item from the basket.
-//   - Return the item removed or `null` if the item was not found
+console.log(removeItem('banana'));
