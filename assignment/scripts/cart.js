@@ -15,8 +15,8 @@ function addItem(item){
 
 console.log(addItem('mango'));
 console.log(`Basket has:  ${basket}`);
-console.log('Adding apples (expect true)', addItem('apples'));
-console.log(`Basket is now ${basket}`);
+console.log('Adding apples (expect true):', addItem('apples'));
+console.log(`Basket now has: ${basket}`);
 
 //Create a function called `listItems`. It should:
 //loop over the items in the `basket` array
@@ -33,6 +33,7 @@ function empty(basket){
   while (basket.length) {
     basket.pop();
 }
+  //console.log('The basket is empty now');
   return basket;
 }
 console.log(empty(basket));
@@ -46,7 +47,9 @@ const maxItems = 5;
 
 function isFull(){
   if(basket.length >= maxItems){
+    console.log('The basket is full.');
     return true;
+
   }
   return false;
 }
@@ -64,7 +67,7 @@ function updatedAddItem(){
       console.log('There is no more room to add an item');
       return true;
     }
-    console.log('There is plenty of room to add an item');
+    console.log('There is still room to add an item');
     return false;
 }
 console.log(updatedAddItem());
@@ -79,5 +82,6 @@ function removeItem(item){
   basket.splice(basket.indexOf(item), 2);
   return basket;
 }
-
+// let index = basket.indexOf(item)
+//basket.splice(index, 2);
 console.log(removeItem('banana'));
